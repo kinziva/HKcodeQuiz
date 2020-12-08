@@ -79,13 +79,9 @@ This homework is graded based on the following criteria:
 * Repository contains quality README file with description, screenshot, and link to deployed application.
 
 
-## Review
+## Recuired Url
 
-You are required to submit BOTH of the following for review:
 
-* The URL of the functional, deployed application.
-
-* The URL of the GitHub repository. Give the repository a unique name and include a README describing the project.
-
-- - -
-© 2020 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
+* [Repository: ] https://github.com/kinziva/HKcodeQuiz
+* [Aapp Url: ]   https://kinziva.github.io/HKcodeQuiz/.
+.
