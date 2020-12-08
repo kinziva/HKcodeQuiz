@@ -84,4 +84,5 @@ This homework is graded based on the following criteria:
 
 * [Repository: ] https://github.com/kinziva/HKcodeQuiz
 * [Aapp Url: ]   https://kinziva.github.io/HKcodeQuiz/.
-.
+ ![Coding Quiz Screenshot](./Assets/quizScreenshot.JPG)
+

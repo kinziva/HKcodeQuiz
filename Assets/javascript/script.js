@@ -56,51 +56,51 @@ var questions = [
       "<html><head></head><body>Hello World</body></html>",
     ],
     answer: "All",
-    gif: ".Assets/images/hello.gif",
+    gif: "../images/hello.gif",
   },
   {
     question:
       "The term ‘debugging’ was coined when programmer Admiral Grace Hopper had to remove a moth from a computer system",
     options: ["True", "False", "Myth"],
     answer: "Myth",
-    gif: "..Assets/images/moth.gif",
+    gif: "../images/moth.gif",
   },
   {
     question: "What was the first computer game ever programmed?",
     options: ["Pacman", "Tennis for Two", "Tetris"],
     answer: "Tennis for Two",
-    gif: "Assets/images/tennis1.gif",
+    gif: "../images/tennis1.gif",
   },
   {
     question: "What is the most popular programming language in use today?",
     options: ["Java", "C#", "Pyhton"],
     answer: "Java",
-    gif: "Assets/images/java.gif",
+    gif: "../images/java.gif",
   },
   {
     question: "Who was the first computer programmer ?",
     options: ["Ada Lovelace", "Charles Babbage", "Alan Turing"],
     answer: "Ada Lovelace",
-    gif: "Assets/images/ada.gif",
+    gif: "../images/ada.gif",
   },
   {
     question: "Who is the creator of Facebook?",
     options: ["Bill Gates", "Mark Zuckerberg", "Steve Jobs"],
     answer: "Mark Zuckerberg",
-    gif: "Assets/images/facebook.gif",
+    gif: "../images/facebook.gif",
   },
   {
     question:
       "What is the average salary for a coder with more than six years experience?",
     options: ["$88,888", "$188,888", "$107,888"],
     answer: "$107,888",
-    gif: "Assets/images/dev.gif",
+    gif: "../images/dev.gif",
   },
   {
     question: "Which one is the html tag creates a heading on a webpage",
     options: ["br", "head", "h1"],
     answer: "h1",
-    gif: "Assets/images/heading.gif",
+    gif: "../images/heading.gif",
   },
 ];
 
