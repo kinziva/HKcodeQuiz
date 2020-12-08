@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title> Coding Quiz </title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="./Assets/css/reset.css" />
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="./Assets/css/style.css" />
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" />
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- main container -->
+    <div class="container">
+        <!-- Coding quiz image -->
+        <header>
+            <div class="  col-md-12  col-sm-12 col-xs-12 ">
+                <img id="quizImg" src="Assets/images/quiz.jpg" class="img-responsive picSize" alt="quiz">
+            </div>
+        </header>
+
+        <div class="jumbotron-fluid card text-center bg-info ">
+
+            <div class="card-header text-white">
+                <h2>Lets start the quiz</h2>
+            </div>
+
+            <!-- question Count Display -->
+            <div class="row card-body">
+                <div id="questionCount"
+                    class="col-md-12 col-sm-12 col-xs-12 text-center text-warning questionCountClass">
+                </div>
+            </div>
+
+            <div class="row card-body text-primary">
+                <!-- timer -->
+                <div id="timer" class="col-md-4 col-sm-12 col-xs-12  text-center text-danger timer  bg-light">
+                    <div id="clock" text-center timer></div>
+                </div>
+                <!-- question -->
+                <div id="question" class="col-md-8 col-sm-12 col-xs-12 text-left text-info gifSet  question bg-light">
+                    <div id="gif"></div>
+                    <p class="instructionText">"Quiz is total 8 questions. You have 160 seconds for total, Select
+                        the answers and you will get your score at the end If you select a wrong answer you will get a penalty of 5 seconds minus of the timer.
+                        Good Luck!"</p>
+                    <button class='btn btn-info' id='beginQuiz'>Start Quiz</button>
+
+                </div>
+
+
+                <div class="container">
+                    <div class="row">
+                    <!-- Div where user submits initials will render  -->
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div id="formSubmit">
+                            </div>
+                        </div>
+                    </div> 
+                </div>
+                
+                <div class="container">
+                    <div class="row">
+                    <!-- Div where high scores will render  -->
+                        <div class="col-md-8 col-sm-12 col-xs-12">
+                            <div id="results"></div>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+        </div>
+        <!-- End of Jumbotron -->
+    </div>
+    <!-- End of main container -->
+
+    <!-- Footer -->
+    <footer class="footer font-small fixed-bottom bg-dark footer-copyright">
+        <div class="row">
+            <!-- Copyright -->
+            <div class="col-md-12 col-sm-12 col-xs-12 text-center text-light">
+                © 2020 Copyright:HKESKIN
+            </div>
+            <!-- End Copyright -->
+        </div>
+    </footer>
+    <!-- End Footer -->
+
+
+    <!--Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--JS -->
+    <script src="Assets/javascript/script.js" type="text/javascript"></script>
+
+</body>
+
+</html>
