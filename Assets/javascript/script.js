@@ -5,7 +5,6 @@ var pickedAnswer; // selected choice
 var secondsLeft = 160; //timer seconds
 var intervalId; // second decrement
 var answer = false; //if the answer is selected true or false, set false at the start
-var isTimerRunning = false;
 
 // elements
 var startQuizBtn = document.getElementById("beginQuiz");
@@ -21,23 +20,6 @@ var scores = document.createElement("scores");
 
 var initials = [];
 
-function renderInitials() {
-  // Clear initials element and update score
-  initialsList.innerHTML = "";
-  scores.textContent = initials.length;
-
-  // Render a new li for each todo
-  for (var i = 0; i < initials.length; i++) {
-    var initials = initials[i];
-
-    var li = document.createElement("li");
-    li.textContent = initials;
-    li.setAttribute("data-index", i);
-
-    initialsList.appendChild(li);
-  }
-}
-
 // Question object consist of questions, options array, right answer, and gif
 var questions = [
   {
@@ -48,51 +30,43 @@ var questions = [
       "<html><head></head><body>Hello World</body></html>",
     ],
     answer: "All",
-    gif: "Assets/images/hello.gif",
   },
   {
     question:
       "The term ‘debugging’ was coined when programmer Admiral Grace Hopper had to remove a moth from a computer system",
     options: ["True", "False", "Myth"],
     answer: "Myth",
-    gif: "Assets/images/moth.gif",
   },
   {
     question: "What was the first computer game ever programmed?",
     options: ["Pacman", "Tennis for Two", "Tetris"],
     answer: "Tennis for Two",
-    gif: "Assets//images/tennis1.gif",
   },
   {
     question: "What is the most popular programming language in use today?",
     options: ["Java", "C#", "Pyhton"],
     answer: "Java",
-    gif: "Assets/images/java.gif",
   },
   {
     question: "Who was the first computer programmer ?",
     options: ["Ada Lovelace", "Charles Babbage", "Alan Turing"],
     answer: "Ada Lovelace",
-    gif: "Assets/images/ada.gif",
   },
   {
     question: "Who is the creator of Facebook?",
     options: ["Bill Gates", "Mark Zuckerberg", "Steve Jobs"],
     answer: "Mark Zuckerberg",
-    gif: "Assets/images/facebook.gif",
   },
   {
     question:
       "What is the average salary for a coder with more than six years experience?",
     options: ["$88,888", "$188,888", "$107,888"],
     answer: "$107,888",
-    gif: "Assets/images/dev.gif",
   },
   {
     question: "Which one is the html tag creates a heading on a webpage",
     options: ["br", "head", "h1"],
     answer: "h1",
-    gif: "Assets/images/heading.gif",
   },
 ];
 
@@ -153,8 +127,9 @@ function checkAnswer() {
       questions[askedQuestion].answer +
       '".<br><br>'
     );
-    displayGif();
     askedQuestion++;
+    setTimeout(newQuestion, 2000);
+
   }
   // if selected wrong answer
   else if (pickedAnswer != questions[askedQuestion].answer && answer === true) {
@@ -166,21 +141,13 @@ function checkAnswer() {
     );
     //minus 5 seconds from the TIMER
     secondsLeft = secondsLeft - 5;
-    displayGif();
     askedQuestion++;
+    setTimeout(newQuestion, 2000);
+
   } else {
   }
 }
 
-function displayGif() {
-  var giphy = $("<img>");
-  //add source path for gifs
-  giphy.attr("src", questions[askedQuestion].gif);
-  console.log("gif path " + questions[askedQuestion].gif);
-  giphy.addClass("img-responsive");
-  $("#question").append(giphy);
-  setTimeout(newQuestion, 2000);
-}
 
 // Timer function
 function setTime() {
