@@ -1,6 +1,6 @@
 // Variables
-var askedQuestion=0; //current asked question on the screen
-var rightAnswer =0; //count of right answers
+var askedQuestion = 0; //current asked question on the screen
+var rightAnswer = 0; //count of right answers
 var pickedAnswer; // selected choice
 var secondsLeft = 160; //timer seconds
 var intervalId; // second decrement
@@ -12,7 +12,6 @@ var startQuizBtn = document.getElementById("beginQuiz");
 var timer = document.getElementById("clock");
 var question = document.getElementById("question");
 var results = document.getElementById("results");
-
 
 //initials input
 var initialsInput = document.createElement("initials");
@@ -39,13 +38,6 @@ function renderInitials() {
   }
 }
 
-
-
-
-
-/////////////////////
-
-
 // Question object consist of questions, options array, right answer, and gif
 var questions = [
   {
@@ -56,51 +48,51 @@ var questions = [
       "<html><head></head><body>Hello World</body></html>",
     ],
     answer: "All",
-    gif: "../images/hello.gif",
+    gif: "Assets/images/hello.gif",
   },
   {
     question:
       "The term ‘debugging’ was coined when programmer Admiral Grace Hopper had to remove a moth from a computer system",
     options: ["True", "False", "Myth"],
     answer: "Myth",
-    gif: "../images/moth.gif",
+    gif: "Assets/images/moth.gif",
   },
   {
     question: "What was the first computer game ever programmed?",
     options: ["Pacman", "Tennis for Two", "Tetris"],
     answer: "Tennis for Two",
-    gif: "../images/tennis1.gif",
+    gif: "Assets//images/tennis1.gif",
   },
   {
     question: "What is the most popular programming language in use today?",
     options: ["Java", "C#", "Pyhton"],
     answer: "Java",
-    gif: "../images/java.gif",
+    gif: "Assets/images/java.gif",
   },
   {
     question: "Who was the first computer programmer ?",
     options: ["Ada Lovelace", "Charles Babbage", "Alan Turing"],
     answer: "Ada Lovelace",
-    gif: "../images/ada.gif",
+    gif: "Assets/images/ada.gif",
   },
   {
     question: "Who is the creator of Facebook?",
     options: ["Bill Gates", "Mark Zuckerberg", "Steve Jobs"],
     answer: "Mark Zuckerberg",
-    gif: "../images/facebook.gif",
+    gif: "Assets/images/facebook.gif",
   },
   {
     question:
       "What is the average salary for a coder with more than six years experience?",
     options: ["$88,888", "$188,888", "$107,888"],
     answer: "$107,888",
-    gif: "../images/dev.gif",
+    gif: "Assets/images/dev.gif",
   },
   {
     question: "Which one is the html tag creates a heading on a webpage",
     options: ["br", "head", "h1"],
     answer: "h1",
-    gif: "../images/heading.gif",
+    gif: "Assets/images/heading.gif",
   },
 ];
 
@@ -115,7 +107,6 @@ function startQuiz() {
   newQuestion();
 }
 
-
 function newQuestion() {
   answer = false;
   $("#question").empty();
@@ -123,11 +114,12 @@ function newQuestion() {
   if (askedQuestion === questions.length) {
     // end asking questions
     endQuiz();
-
   } else {
-    //start game
+    //start asking questions
 
-    $("#questionCount").text("Question Number " + (askedQuestion + 1) + " out of " + questions.length);
+    $("#questionCount").text(
+      "Question Number " + (askedQuestion + 1) + " out of " + questions.length
+    );
     $("#question").text(questions[askedQuestion].question);
     setTime();
 
@@ -139,6 +131,7 @@ function newQuestion() {
       $("#question").append(answerList);
     }
 
+    //chose answer on click
     $(".chooseAnswer").on("click", function () {
       pickedAnswer = $(this).data("data-choiceValue");
       console.log(pickedAnswer);
@@ -157,47 +150,52 @@ function checkAnswer() {
     $("#question").empty();
     $("#question").html(
       'Right Answer! <br>  The answer was "' +
-        questions[askedQuestion].answer +
-        '".<br><br>'
+      questions[askedQuestion].answer +
+      '".<br><br>'
     );
     displayGif();
+    askedQuestion++;
   }
-  // if selected wrong answer 
+  // if selected wrong answer
   else if (pickedAnswer != questions[askedQuestion].answer && answer === true) {
     $("#question").empty();
-    $("#question").html('Wrong Answer!  <br> The answer was "' + questions[askedQuestion].answer +'".<br><br>');
+    $("#question").html(
+      'Wrong Answer!  <br> The answer was "' +
+      questions[askedQuestion].answer +
+      '".<br><br>'
+    );
     //minus 5 seconds from the TIMER
-    secondsLeft = secondsLeft-5;
+    secondsLeft = secondsLeft - 5;
     displayGif();
+    askedQuestion++;
   } else {
   }
 }
 
 function displayGif() {
   var giphy = $("<img>");
+  //add source path for gifs
   giphy.attr("src", questions[askedQuestion].gif);
+  console.log("gif path " + questions[askedQuestion].gif);
   giphy.addClass("img-responsive");
   $("#question").append(giphy);
   setTimeout(newQuestion, 2000);
-  askedQuestion++;
 }
-
 
 // Timer function
 function setTime() {
-  var timerInterval = setInterval(function() {
+  var timerInterval = setInterval(function () {
     secondsLeft--;
-      timer.textContent = secondsLeft;
+    timer.textContent = secondsLeft;
 
-      if(secondsLeft === 0) {
-          clearInterval(timerInterval);
-          timer.style.visibility = "hidden";
-          secondsLeft = 0;   
-           endQuiz();
-      }
+    if (secondsLeft === 0) {
+      clearInterval(timerInterval);
+      timer.style.visibility = "hidden";
+      secondsLeft = 0;
+      endQuiz();
+    }
   }, 1000);
 }
-
 
 function endQuiz() {
   $("#question").empty();
@@ -206,11 +204,14 @@ function endQuiz() {
   $("#timer").hide();
   $("#question").append("Quiz is Over  <br><br>");
   // $("#question").append("Your score is : " + rightAnswer +"<br> ");
-  $("#question").append("<p id ='score' class='text-secondary'> Score: " + rightAnswer +"</p>");
+  $("#question").append(
+    "<p id ='score' class='text-secondary'> Score: " + rightAnswer + "</p>"
+  );
 
   //enter you initials text box
   $("#question").append(
-    "Enter Your Initials <textarea id = 'Userinitial' class='text-secondary'>Enter Your Initials</textarea>");
+    "Enter Your Initials <textarea id = 'Userinitial' class='text-secondary'>Enter Your Initials</textarea>"
+  );
 
   //submit your initials button
   $("#question").append(
@@ -218,41 +219,29 @@ function endQuiz() {
   );
 }
 
-
-
 function submitInitials() {
+  alert("Submitted Initials");
+  var initial = document.querySelector("#Userinitial").value;
 
-alert("Submitted Initials");
-var initial = document.querySelector("#Userinitial").value;
+  localStorage.setItem("score", rightAnswer);
+  localStorage.setItem("initials", initial);
 
-localStorage.setItem("score", rightAnswer);
-localStorage.setItem("initials",initial);
+  console.log(initial);
 
+  if (!rightAnswer || !initial) {
+    return;
+  }
 
-// var initialsText = $("#Userinitial").value;
-console.log(initial);
-
-
-if (!rightAnswer || !initials) {
-  return;
-}
-
-
-
-var scoreLocal = localStorage.getItem("score");
-var UserinitialLocal = localStorage.getItem("initials");
-console.log("scoreLocal: " +scoreLocal);
-console.log("UserinitialLocal: " +UserinitialLocal);
+  var scoreLocal = localStorage.getItem("score");
+  var UserinitialLocal = localStorage.getItem("initials");
+  console.log("scoreLocal: " + scoreLocal);
+  console.log("UserinitialLocal: " + UserinitialLocal);
 
   $("#question").append("<li>score: </li>" + scoreLocal);
-  $("#question").append("<li>User initial: </li>"+UserinitialLocal);
-
+  $("#question").append("<li>User initial: </li>" + UserinitialLocal);
 
   init();
-  
 }
-
-
 
 function init() {
   // Get stored initals from localStorage
@@ -260,19 +249,12 @@ function init() {
   var storedInitials = JSON.parse(localStorage.getItem("initials"));
   var storedScore = JSON.parse(localStorage.getItem("score"));
 
-
   // If initials were retrieved from localStorage, update the initials array to it
   if (storedInitials !== null) {
     initials = storedInitials;
   }
 
-  // Render initials to the DOM
-  // renderInitials();
-
   var li = document.createElement("li");
-    li.textContent = storedInitials + "" + storedScore;
-    results.appendChild(li);
-
-
+  li.textContent = storedInitials + "" + storedScore;
+  results.appendChild(li);
 }
-
